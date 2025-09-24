@@ -4,34 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2FA����</title>
-    <link rel="stylesheet" href="style.css">  <!-- ����� style.css ����༭ -->
-    <script src="app1.js"></script>  <!-- 2FA ��֤������ -->
-    <script src="app2.js"></script>  <!-- ��ά������ -->
+    <title>2FA工具</title>
+    <link rel="stylesheet" href="style.css">  <!-- 这里的 style.css 按需编辑 -->
+    <script src="app1.js"></script>  <!-- 2FA 验证码生成 -->
+    <script src="app2.js"></script>  <!-- 二维码生成 -->
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>2FA ˫����֤��������</h1>
-            <p>���������2FA��Կ�������ť��ȡ��֤�룬�����ɶ�ά�롣</p>
+            <h1>2FA 双重验证码生成器</h1>
+            <p>请输入你的2FA密钥，点击按钮获取验证码，并生成二维码。</p>
         </div>
 
         <div class="input-container">
-            <label for="secret-input">����2FA��Կ:</label>
-            <input id="secret-input" type="text" placeholder="�����������Կ" autocomplete="on">
+            <label for="secret-input">输入2FA密钥:</label>
+            <input id="secret-input" type="text" placeholder="请输入你的密钥" autocomplete="on">
         </div>
 
         <div class="actions">
-            <button id="btn-js" class="btn-get">��ȡ��֤�� (JS ʵ��)</button>
+            <button id="btn-js" class="btn-get">获取验证码 (JS 实现)</button>
             <div class="output">
-                <p>˫����Կ: <span id="key_js"></span></p>
-                <p>��ǰ��֤��: <span id="code_js"></span></p>
-                <p>ʣ��ʱ��: <span id="timer_js">30</span> ��</p>
+                <p>双重密钥: <span id="key_js"></span></p>
+                <p>当前验证码: <span id="code_js"></span></p>
+                <p>剩余时间: <span id="timer_js">30</span> 秒</p>
             </div>
         </div>
 
         <div class="qr-container">
-            <button class="btn-qr" onclick="showModalJS()">���ɶ�ά��</button>
+            <button class="btn-qr" onclick="showModalJS()">生成二维码</button>
         </div>
 
         <!-- Modal to show QR code -->
@@ -39,7 +39,7 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div id="qrcode"></div>
-                <p>��ʹ�� Google Authenticator ɨ���Ϸ���ά�뽫��Կ�������ֻ���</p>
+                <p>请使用 Google Authenticator 扫描上方二维码将密钥添加至手机。</p>
             </div>
         </div>
 
@@ -52,7 +52,7 @@
     <div id="notification-container"></div>
 
     <script>
-        // ģ̬��رչ���
+        // 模态框关闭功能
         document.getElementsByClassName("close")[0].onclick = function() {
             document.getElementById("myModal").style.display = "none";
         }
